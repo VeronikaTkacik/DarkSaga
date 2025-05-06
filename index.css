@@ -1,0 +1,139 @@
+/* Загальні стилі */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'Cinzel', serif;
+    background-color: black;
+}
+
+/* Фон для хедера */
+header {
+    background: url('https://i.postimg.cc/9FP8VS0V/fon.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    color: #ff8c1a;
+}
+
+/* Напівпрозорий оверлей */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+}
+
+/* Заголовок */
+.overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #ff8c1a;
+    text-shadow: 0 0 10px black;
+}
+
+/* Кнопка "Легенда Клинка" */
+.legend-btn {
+    background: black;
+    color: #ff8c1a;
+    border: 2px solid #ff8c1a;
+    width: 251px;
+    height: 61px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 48px;
+    animation: jump 1s infinite;
+}
+/* Анімація для кнопки Легенда Клинка (підскокування) */
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Блок кнопок шляхів */
+.path-buttons {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+/* Кнопки "Шляхів" */
+.path-btn {
+    background: black;
+    color: #ff8c1a;
+    border: 2px solid #ff8c1a;
+    width: 188px;
+    height: 118px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Розташовуємо елементи вертикально */
+    align-items: center;
+    gap: 10px;
+    /* Відстань між зображенням та текстом */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 140, 26, 0.4);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.path-btn:nth-child(1) {
+    margin-top: -45px;
+}
+/* Кнопка "Тінь" з відступом 48px від "Легенда Клинка" */
+.path-btn:nth-child(2) {
+    margin-top: 10px;
+    /* Відступ для кнопки "Тінь" */
+}
+.path-btn:nth-child(3) {
+    margin-top: -45px;
+}
+
+/* Іконки в кнопках */
+.path-btn img {
+    max-width: 40px;
+    /* Розмір іконки */
+    height: auto;
+}
+
+/* Кнопка "Шляхів" при ховері */
+.path-btn:hover {
+    transform: translateY(-10px);
+}
+
+.path-btn i {
+    font-size: 1.5rem;
+}
+
+
