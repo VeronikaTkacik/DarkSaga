@@ -19,11 +19,24 @@ header {
     height: 100vh;
     position: relative;
     color: #ff8c1a;
+    background-attachment: scroll;
+}
+header::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    /* або менше */
+    background-color: #000000 ;
+    z-index: 2;
 }
 
 /* Напівпрозорий оверлей */
 .overlay {
-    position: absolute;
+    position: relative;
+    z-index: 3;
     top: 0;
     left: 0;
     width: 100%;
@@ -35,6 +48,18 @@ header {
     align-items: center;
     gap: 25px;
     text-align: center;
+}
+/* Градієнт */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    /* Висота градієнта */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #A54700);
+    z-index: 1;
 }
 
 /* Заголовок */
@@ -135,5 +160,11 @@ header {
 .path-btn i {
     font-size: 1.5rem;
 }
-
+.gradient-section {
+    background: linear-gradient(to bottom, #A54700, #000000);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 100vh;
+}
 
