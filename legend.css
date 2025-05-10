@@ -257,9 +257,7 @@ body {
 .dragon-container {
     position: absolute;
     top: 10%;
-    /* Налаштуйте вертикальне розташування */
     left: 10%;
-    /* Налаштуйте горизонтальне розташування */
     transform: translateY(-80%);
     transform: translateX(-10%);
     z-index: 0;
@@ -268,16 +266,13 @@ body {
 /* Стиль для зображення дракона */
 .dragon-img {
     width: 500px;
-    /* Задайте потрібний розмір дракона */
     height: auto;
 }
 /* Стиль для контейнера з дракончиком */
 .dragon-container2 {
     position: absolute;
     top: 10%;
-    /* Налаштуйте вертикальне розташування */
     left: 10%;
-    /* Налаштуйте горизонтальне розташування */
     transform: translateY(-80%);
     transform: translateX(140%);
     z-index: 0;
@@ -286,7 +281,6 @@ body {
 /* Стиль для зображення дракона */
 .dragon-img {
     width: 500px;
-    /* Задайте потрібний розмір дракона */
     height: auto;
 }
 
