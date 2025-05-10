@@ -13,10 +13,16 @@
       </div>
     </header>
 
+    <div class="story-content">
+      <p id="story-text">Завантаження історії...</p>
+    </div>
+
     <div class="path-buttons">
-      <button class="path-btn"></button>
-      <button class="path-btn"></button>
-      <button class="path-btn"></button>
+      <button class="path-btn" id="option1" onclick="chooseOption(1)"></button>
+      <button class="path-btn" id="option2" onclick="chooseOption(2)"></button>
+      <button id="back-to-home" onclick="goToHomePage()" style="display: none">
+        Повернутися на головну
+      </button>
     </div>
 
     <script src="light.js"></script>

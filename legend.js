@@ -1,9 +1,8 @@
 const cards = document.querySelectorAll(".card");
 const dots = document.querySelectorAll(".dot");
-const memberName = document.querySelector(".member-name");
-const memberRole = document.querySelector(".member-role");
 const leftArrow = document.querySelector(".nav-arrow.left");
 const rightArrow = document.querySelector(".nav-arrow.right");
+
 let currentIndex = 0;
 let isAnimating = false;
 
@@ -43,16 +42,6 @@ function updateCarousel(newIndex) {
 	dots.forEach((dot, i) => {
 		dot.classList.toggle("active", i === currentIndex);
 	});
-
-	memberName.style.opacity = "0";
-	memberRole.style.opacity = "0";
-
-	setTimeout(() => {
-		memberName.textContent = teamMembers[currentIndex].name;
-		memberRole.textContent = teamMembers[currentIndex].role;
-		memberName.style.opacity = "1";
-		memberRole.style.opacity = "1";
-	}, 300);
 
 	setTimeout(() => {
 		isAnimating = false;
@@ -114,23 +103,7 @@ function handleSwipe() {
 
 updateCarousel(0);
 
-    /*
-    const spinner = document.getElementById('spinner'); // Спінер
 
-    // Показати спінер перед завантаженням сторінки
-    window.addEventListener('beforeunload', function() {
-        spinner.style.display = 'block';
-        spinner.classList.add('show'); // Додаємо клас для анімації
-    });
-
-    // Сховати спінер після завантаження сторінки
-    window.addEventListener('load', function() {
-        spinner.classList.remove('show'); // Видаляємо клас для анімації
-        setTimeout(() => {
-            spinner.style.display = 'none'; // Сховати спінер після завершення анімації
-        }, 300);
-    });
-*/
 
 
 

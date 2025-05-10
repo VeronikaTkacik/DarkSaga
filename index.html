@@ -11,21 +11,14 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- Спінер -->
-    <div class="dot-spinner" id="spinner">
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-      <div class="dot-spinner__dot"></div>
-    </div>
     <header>
       <div class="overlay">
         <h1>ТЕМНА САГА<br />КЛИНОК БЕЗОДНІ</h1>
-        <button class="legend-btn">ЛЕГЕНДА КЛИНКА</button>
+        <!-- Кнопка Легенда Клинка -->
+        <button class="legend-btn" onclick="showLoader()">
+          ЛЕГЕНДА КЛИНКА
+        </button>
+
         <div class="path-buttons">
           <button class="path-btn light-btn">
             <img src="img/icons8-sun-64.png" alt="Світло" />
@@ -39,6 +32,17 @@
             <img src="img/icons8-голуб-50.png" alt="Спокута" />
             Спокута
           </button>
+        </div>
+      </div>
+      <div id="center-wrapper">
+        <div class="map-wrapper">
+          <h1 class="map-title">МАПА СВІТУ ЕЛЕРАСС</h1>
+        </div>
+        <div class="center-block" onclick="openModal()"></div>
+
+        <!-- Модальне вікно -->
+        <div id="modal" class="modal" onclick="closeModal()">
+          <img src="https://i.postimg.cc/BbRKjVxd/map1.jpg" alt="Карта" />
         </div>
       </div>
     </header>
