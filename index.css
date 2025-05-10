@@ -1,285 +1,250 @@
-/* Загальні стилі для body: фон, колір тексту, розташування по центру */
-body {
-    background: linear-gradient(to bottom, #A54700, #000000);
-    color: white;
-    min-height: 100vh;
+/* === Загальні скидання стилів і базові параметри === */
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
+    padding: 0;
 }
 
-/* Стиль блоку "Що було раніше..." */
-.center-block {
+body,
+html {
+    height: 100%;
+    font-family: 'Cinzel', serif;
+    background-color: black;
+}
+
+/* === Хедер з фоновим зображенням === */
+header {
+    background: url('https://i.postimg.cc/9FP8VS0V/fon.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    color: #ff8c1a;
+    background-attachment: scroll;
+}
+
+/* === Нижня чорна лінія під хедером === */
+header::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #000000;
+    z-index: 2;
+}
+
+/* === Темний напівпрозорий оверлей поверх фону === */
+.overlay {
+    position: relative;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+}
+
+/* === Градієнт у нижній частині хедера === */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #A54700);
+    z-index: 1;
+}
+
+/* === Заголовок у хедері === */
+.overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #ff8c1a;
+    text-shadow: 0 0 10px black;
+}
+
+/* === Кнопка "Легенда Клинка" === */
+.legend-btn {
     background: black;
     color: #ff8c1a;
     border: 2px solid #ff8c1a;
-    width: 600px;
-    height: 125px;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(255, 140, 26, 0.4);
-    margin-bottom: 20px;
-    padding: 10px;
-}
-
-.center-block p {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* Заголовок великого розміру з градієнтом */
-.about-title {
-    font-size: 7.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    position: absolute;
-    top: 45px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    white-space: nowrap;
-    font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
-    background: linear-gradient(to bottom,
-            rgb(8 42 123 / 35%) 30%,
-            rgb(255 255 255 / 0%) 76%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Контейнер для 3D-каруселі */
-.carousel-container {
-    width: 100%;
-    max-width: 1200px;
-    height: 450px;
-    position: relative;
-    perspective: 1000px;
-    margin-top: 80px;
-    margin-bottom: 0;
-}
-
-/* Трек для елементів каруселі */
-.carousel-track {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Базові стилі для картки */
-.card {
-    position: absolute;
-    width: 380px;
-    height: 280px;
-    border: 2px solid #ff8c1a;
-    border-radius: 20px;
-    overflow: hidden;
-    background: linear-gradient(to bottom right, #000000, #A54700);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* Стиль заголовка картки */
-.card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    color: #ff8c1a;
-}
-
-/* Текст картки зі шрифтом Cinzel */
-.card-text {
-    font-family: 'Cinzel', serif;
-    font-size: 1.0rem;
-    color: white;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    line-height: 1.4;
-}
-
-/* Центрована (активна) картка */
-.card.center {
-    z-index: 10;
-    transform: scale(1.1) translateZ(0);
-}
-
-/* Ліва картка друга по черзі (найдальша) */
-.card.left-2 {
-    z-index: 1;
-    transform: translateX(-400px) scale(0.8) translateZ(-300px);
-    opacity: 0.7;
-}
-
-.card.left-2 img {
-    filter: grayscale(100%);
-}
-
-/* Ліва картка ближча */
-.card.left-1 {
-    z-index: 5;
-    transform: translateX(-200px) scale(0.9) translateZ(-100px);
-    opacity: 0.9;
-}
-
-.card.left-1 img {
-    filter: grayscale(100%);
-}
-
-/* Права картка ближча */
-.card.right-1 {
-    z-index: 5;
-    transform: translateX(200px) scale(0.9) translateZ(-100px);
-    opacity: 0.9;
-}
-
-.card.right-1 img {
-    filter: grayscale(100%);
-}
-
-/* Права картка друга по черзі (найдальша) */
-.card.right-2 {
-    z-index: 1;
-    transform: translateX(400px) scale(0.8) translateZ(-300px);
-    opacity: 0.7;
-}
-
-.card.right-2 img {
-    filter: grayscale(100%);
-}
-
-/* Сховані картки */
-.card.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Контейнер з точками навігації */
-.dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 60px;
-}
-
-/* Базовий стиль для точки */
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(8, 42, 123, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Активна точка */
-.dot.active {
-    background: rgb(185, 97, 3);
-    transform: scale(1.2);
-}
-
-/* Стилі для навігаційних стрілок (ліворуч та праворуч) */
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(8, 42, 123, 0.6);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 20;
-    transition: all 0.3s ease;
+    width: 251px;
+    height: 61px;
     font-size: 1.5rem;
-    border: none;
-    outline: none;
-    padding-bottom: 4px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 48px;
+    animation: jump 1s infinite;
 }
 
-.nav-arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
-    transform: translateY(-50%) scale(1.1);
+/* === Анімація підстрибування кнопки === */
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
-.nav-arrow.left {
-    left: 20px;
-    padding-right: 3px;
+/* === Обгортка для кнопок вибору шляху === */
+.path-buttons {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
 }
 
-.nav-arrow.right {
-    right: 20px;
-    padding-left: 3px;
+/* === Стилі кнопок шляхів === */
+.path-btn {
+    background: black;
+    color: #ff8c1a;
+    border: 2px solid #ff8c1a;
+    width: 188px;
+    height: 118px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 140, 26, 0.4);
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-/* Кнопка вибору шляху (інтерактивна) */
-.choose-path {
+/* === Індивідуальні відступи для кожної з трьох кнопок === */
+.path-btn:nth-child(1) {
+    margin-top: -45px;
+}
+
+.path-btn:nth-child(2) {
+    margin-top: 10px;
+}
+
+.path-btn:nth-child(3) {
+    margin-top: -45px;
+}
+
+/* === Іконка в кнопці шляху === */
+.path-btn img {
+    max-width: 40px;
+    height: auto;
+}
+
+/* === Анімація кнопки при наведенні === */
+.path-btn:hover {
+    transform: translateY(-10px);
+}
+
+/* === Іконка з текстом всередині кнопки === */
+.path-btn i {
+    font-size: 1.5rem;
+}
+
+/* === Секція з градієнтним фоном === */
+.gradient-section {
     background: linear-gradient(to bottom, #A54700, #000000);
     color: white;
-    padding: 10px 20px;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* === Центрування блоку карти на екрані === */
+#center-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* === Блок з картою — стилізований прямокутник === */
+.center-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    background: url(https://i.postimg.cc/BbRKjVxd/map1.jpg) no-repeat center center;
+    background-size: cover;
     border: 2px solid #ff8c1a;
-    border-radius: 15px;
-    font-size: 18px;
-    font-family: 'Cinzel', serif;
+    width: 900px;
+    height: 500px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 20px #ff8c1a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    margin-top: 20px;
 }
 
-.choose-path:hover {
-    background-color: #333333;
-    transform: scale(1.1);
+/* === Ефект збільшення блоку при наведенні === */
+.center-block:hover {
+    transform: translate(-50%, -40%) scale(1.05);
+    box-shadow: 0 0 30px #ffa94d;
 }
 
-.choose-path:active {
-    transform: scale(0.95);
+/* === Стилі модального вікна при перегляді зображення === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: zoom-out;
 }
 
-/* Контейнер для дракона ліворуч */
-.dragon-container {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    transform: translateY(-80%);
-    transform: translateX(-10%);
-    z-index: 1;
+/* === Зображення всередині модального вікна === */
+.modal img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border: 2px solid #ff8c1a;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #ff8c1a;
 }
 
-/* Контейнер для дракона праворуч */
-.dragon-container2 {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    transform: translateY(-80%);
-    transform: translateX(140%);
-    z-index: 1;
+/* === Обгортка для карти з заголовком === */
+.map-wrapper {
+    position: relative;
+    top: 40px;
+    text-align: center;
 }
 
-/* Зображення дракона */
-.dragon-img {
-    width: 500px;
-    height: auto;
+/* === Заголовок карти === */
+.map-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.2em;
+    color: #ff8c1a;
+    display: inline-block;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #ff8c1a;
+    margin-bottom: 30px;
 }
